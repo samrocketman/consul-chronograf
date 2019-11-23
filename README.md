@@ -13,6 +13,10 @@ healthy.
 
 # Recommended provisioning
 
-Provision this after [consul-influxdb][consul-influxdb].
+Provision this after
+
+* [consul-influxdb][consul-influxdb]
+* [consul-kapacitor][consul-kapacitor]
 
 [consul-influxdb]: https://github.com/samrocketman/consul-influxdb
+[consul-kapacitor]: https://github.com/samrocketman/consul-kapacitor
