@@ -11,12 +11,19 @@ docker-compose-ha-consul-vault-ui to `${HOME}/git/github`.
 docker-compose-ha-consul-vault-ui must be started before this project and be
 healthy.
 
-# Recommended provisioning
+# Order of operations
 
-Provision this after
+1. Bootstrap [consul-influxdb][consul-influxdb]
+2. Bootstrap [consul-kapacitor][consul-kapacitor]
+3. Bootstrap [consul-chronograf][consul-chronograf] (this project)
 
-* [consul-influxdb][consul-influxdb]
-* [consul-kapacitor][consul-kapacitor]
+# Bootstrapping this project
 
+Simply run the following docker command.  It will register with consul
+automatically.
+
+    docker-compose up -d
+
+[consul-chronograf]: https://github.com/samrocketman/consul-chronograf
 [consul-influxdb]: https://github.com/samrocketman/consul-influxdb
 [consul-kapacitor]: https://github.com/samrocketman/consul-kapacitor
