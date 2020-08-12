@@ -42,4 +42,4 @@ services:
         consul-agent.sh --consul-host consul.service.consul --advertise "$$IP" --service '{"service": {"name": "chronograf", "tags": ["portal"], "port": 8888, "meta": {"title": "Chronograf", "description": "InfluxDB web frontend as part of the <a href=\"https://www.influxdata.com/time-series-platform/\">TICK stack</a>."}}}'
         chown chronograf. /var/lib/chronograf
         env | awk '/CHRONOGRAF_|BOLT_|PATH/ { print "export \""$$0"\"" }' > /tmp/environ.sh
-        exec su -s /bin/sh -c "set -ex; . /tmp/environ.sh; exec /entrypoint.sh chronograf --influxdb-url=http://influxdb.service.consul:8086 --basepath=/chronograf --kapacitor-url=http://influxdb.service.consul:9092" - chronograf
+        exec su -s /bin/sh -c "set -ex; . /tmp/environ.sh; exec /entrypoint.sh chronograf --influxdb-url=http://influxdb.service.consul:8086 --basepath=/chronograf --kapacitor-url=http://kapacitor.service.consul:9092 --reporting-disabled" - chronograf
